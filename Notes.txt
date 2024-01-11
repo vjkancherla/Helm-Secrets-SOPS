@@ -79,7 +79,7 @@ Encrypting helm sensitive values
 
 - All the charts are using insecure credentials:
     - charts/rabbitmq/secrets/credentials.yaml
-        - the value in this file is referenced in charts/rabbitmq/templates/my-secrets.yaml
+        - the values in this file are referenced in charts/rabbitmq/templates/my-secrets.yaml
     
     - charts/serverhb/secrets/credentials.yaml
         - the values in this file are referenced in charts/serverhb/templates/my-secrets.yaml
@@ -180,8 +180,8 @@ sops:
 Deploying Helm Charts with Encrypted Values Files
 ------------------------------------------------------
 The helm secrets plugin will:
-  - dynamically decrypts the encrypted values file
-  - create new values file with the decrypted values (the file will be called: credentials.encrypted.yaml.dec)
+  - dynamically decrypt the encrypted values file
+  - creates NEW values file with the decrypted values (the file will be called: <encrypted-values-file-name>.dec)
   - makes the decrypted values file available to helm as normal
   - deletes the decrypted file after the chart is installed (or errored)
 
